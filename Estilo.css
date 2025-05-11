@@ -1,8 +1,8 @@
 .ApreSite{
     color:crimson;
-    background-image: url('imagens/PessoasDanFotoDeFundo.jpeg');
+    background-image: url('imagens/PessoasDancaFotoDeFundo.jpg');
     background-size: cover;      /* Cobre todo o espaço */
-    background-position: center bottom; /* Centraliza */
+    background-position: center; /* Centraliza */
     background-repeat: no-repeat;
     height: 200;  
 }
@@ -21,11 +21,11 @@
     font:italic;
 }
 
-/*fonte do titulo
-/*.playfair-display {
+/*fonte do titulo*/
+.playfair-display {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }*/
+  }
   
