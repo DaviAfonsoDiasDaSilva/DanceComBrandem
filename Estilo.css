@@ -1,10 +1,12 @@
+body{
+background-image: url('imagens/PessoasDancaFotoDeFundo.jpg');
+background-repeat: no-repeat;
+max-width: 100%;
+background-size: cover;      
+}
 .ApreSite{
     color:crimson;
-    background-image: url('imagens/PessoasDancaFotoDeFundo.jpg');
-    background-size: cover;      /* Cobre todo o espaço */
-    background-position: center; /* Centraliza */
-    background-repeat: no-repeat;
-    height: 200;  
+    
 }
 .ApreSite h1{
 
