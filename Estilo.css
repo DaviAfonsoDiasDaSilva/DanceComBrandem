@@ -8,20 +8,17 @@ body{
 }
 
 .DancasDisp {
+      position: relative;
+      width: 90%;
+      height:30%;
+      border-radius: 30px;
       display: flex;
-      overflow-x: auto;
+      margin:auto;
+      overflow: hidden;
       gap: 10px;
       padding: 10px;
       scroll-behavior: smooth;
-    }
-
-    .DancasDisp::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .DancasDisp::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 4px;
+      background-color: aquamarine;
     }
 
 .ApreSite{
@@ -45,8 +42,9 @@ body{
 }
 
 .Tango-button{
-  width: 130px;              /* size of the button */
-  height: 130px;
+  max-width: 150px;
+  width: 100%;
+  aspect-ratio: 1/1;             /* size of the button */
   border-radius: 50%;       /* makes it circular */
   overflow: hidden;         /* hides overflow of the image */
   padding: 0;
@@ -63,17 +61,23 @@ body{
 }
 
 .Tango{
-    width:15%
+    flex:1;
+    width:15%;
+    height: 15%;
 }
 
+.Tango-button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
+}
 .Tango h3{
     color:crimson;
     text-align:center;
 }
 
 .Ballet-button{
-  width: 130px;              /* size of the button */
-  height: 130px;
+  max-width: 150px;
+  width:100%;           /* size of the button */
+  aspect-ratio: 1/1;
   border-radius: 50%;       /* makes it circular */
   overflow: hidden;         /* hides overflow of the image */
   padding: 0;
@@ -89,10 +93,48 @@ body{
   display: block;
 }
 .Ballet{
-    width:15%
+    flex:1;
+    width: 15%;
+}
+
+.Ballet-button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
 }
 
 .Ballet h3{
+    color:crimson;
+    text-align:center;
+}
+
+.Valsa-button{
+  max-width: 150px;
+  width:100%;           /* size of the button */
+  aspect-ratio: 1/1;
+  border-radius: 50%;       /* makes it circular */
+  overflow: hidden;         /* hides overflow of the image */
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent; /* optional */
+}
+
+.Valsa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* ensures the image covers the circle */
+  display: block;
+}
+.Valsa{
+  flex:1;
+    width:15%;
+    height:15%;
+}
+
+.Valsa-button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
+}
+
+.Valsa h3{
     color:crimson;
     text-align:center;
 }

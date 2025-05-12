@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrossel Responsivo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .item {
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 25%; /* 4 por vez (largas) */
+    }
+
+    .item-content {
+      background: #f0f0f0;
+      padding: 30px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav.left {
+      left: 0;
+    }
+
+    .nav.right {
+      right: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .item { width: 33.33%; } /* 3 por vez */
+    }
+
+    @media (max-width: 768px) {
+      .item { width: 50%; } /* 2 por vez */
+    }
+
+    @media (max-width: 480px) {
+      .item { width: 100%; } /* 1 por vez */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <button class="nav left">‹</button>
+  <div class="carousel" id="carousel">
+    <div class="item"><div class="item-content">Item 1</div></div>
+    <div class="item"><div class="item-content">Item 2</div></div>
+    <div class="item"><div class="item-content">Item 3</div></div>
+    <div class="item"><div class="item-content">Item 4</div></div>
+    <div class="item"><div class="item-content">Item 5</div></div>
+    <div class="item"><div class="item-content">Item 6</div></div>
+    <div class="item"><div class="item-content">Item 7</div></div>
+    <div class="item"><div class="item-content">Item 8</div></div>
+  </div>
+  <button class="nav right">›</button>
+</div>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  const leftBtn = document.querySelector('.nav.left');
+  const rightBtn = document.querySelector('.nav.right');
+  let currentIndex = 0;
+
+  function getVisibleCount() {
+    const width = window.innerWidth;
+    if (width <= 480) return 1;
+    if (width <= 768) return 2;
+    if (width <= 1024) return 3;
+    return 4;
+  }
+
+  function updateCarousel() {
+    const visibleCount = getVisibleCount();
+    const totalItems = document.querySelectorAll('.item').length;
+    const maxIndex = totalItems - visibleCount;
+
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    const itemWidth = carousel.querySelector('.item').offsetWidth;
+    carousel.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+  }
+
+  leftBtn.addEventListener('click', () => {
+    currentIndex--;
+    updateCarousel();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    currentIndex++;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+  window.addEventListener('load', updateCarousel);
+</script>
+
+</body>
+</html>
