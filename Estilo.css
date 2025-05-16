@@ -196,7 +196,7 @@ body{
   justify-content: center;
   gap: 30px;               /* espaçamento maior */
   justify-self: center;
-}
+  }
 
 .navbar a {
   color: white;
@@ -217,6 +217,7 @@ body{
   display: none;           /* escondido por padrão */
   flex-direction: column;
   cursor: pointer;
+  justify-self: flex-end;
 }
 
 .menu-toggle .bar {
@@ -237,6 +238,7 @@ body{
   width: 100%;
   background-color: #8b4c8c;
   padding: 15px 0;
+  z-index:10;/*so that other content dond get on top of it*/
 }
 
 .navbar.active a {

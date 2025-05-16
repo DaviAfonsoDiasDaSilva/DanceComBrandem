@@ -13,9 +13,9 @@
     </head>
  
     <body>
-         <header class="topbar">
+    <header class="topbar">
         <div class="logo">Dançe com Brandem</div>
-        <nav class="navbar">
+        <nav class="navbar" id="navbar">
             <a href="index.html">Home</a>
             <a href="sobre.html">Sobre Nós</a>
             <a href="contato.html">Contato</a>
@@ -30,16 +30,6 @@
             <span class="bar"></span>
         </div>
     </header>
-
-
-        <script>
-            const menuToggle = document.getElementById('mobile-menu');
-            const navbar    = document.getElementById('navbar');
-
-            menuToggle.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-            });
-        </script>
         <div class="ApreSite">
             <h1>Dançe com o Brandem</h1>
             <h2>Aprenda varios estilos de dança com o professor Brandemburg</h2>
@@ -75,8 +65,16 @@
             
 
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const menuToggle = document.getElementById('mobile-menu');
+                const navbar = document.getElementById('navbar');
 
-        
+                menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                });
+            });
+        </script>
         <!--<script src="" async defer></script>-->
     </body>
 </html>
