@@ -13,14 +13,33 @@
     </head>
  
     <body>
-        <div class="TopBar">
-        <div class="Home">
-            <a href="HomePage.html" aria-current="page" class="linkHome">Home</a>
+         <header class="topbar">
+        <div class="logo">Dançe com Brandem</div>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre Nós</a>
+            <a href="contato.html">Contato</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="turmas.html">Turmas</a>
+            <a href="eventos.html">Eventos</a>
+        </nav>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-        <div class="Teste">
-            <a href="HomePage.html" aria-current="page" class="linkTeste">Home</a>
-        </div>
-        </div>
+    </header>
+
+
+        <script>
+            const menuToggle = document.getElementById('mobile-menu');
+            const navbar    = document.getElementById('navbar');
+
+            menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            });
+        </script>
         <div class="ApreSite">
             <h1>Dançe com o Brandem</h1>
             <h2>Aprenda varios estilos de dança com o professor Brandemburg</h2>
