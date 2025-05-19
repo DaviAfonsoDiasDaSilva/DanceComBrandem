@@ -133,6 +133,11 @@ body {
     text-align:center;
 }
 
+.salsa-dance h3{
+  color:white;
+  text-align:center;
+}
+
 .Ballet-button{
   max-width: 150px;
   width:100%;           /* size of the button */
