@@ -21,13 +21,22 @@
   color: aliceblue;
 }
 
-body{
-    background-color: #0d2c36;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+/* Estilo do corpo da página */
+body {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos de cima para baixo */
+  min-height: 100vh; /* Garantia de altura mínima (ocupa a altura total da janela) */
+  margin: 0; /* Remove margens padrão do body */
+  
+  background-color: #0d2c36; /* Cor de fundo */
+  background-repeat: no-repeat; /* Evita repetição do fundo */
+  background-size: cover; /* Faz o fundo cobrir toda a tela */
 }
+
+.main-content {
+  flex-grow: 1; /* Faz com que o conteúdo principal ocupe o máximo de altura */
+}
+
 
 .DancasDisp {
   display: flex;
@@ -293,15 +302,17 @@ body{
   }
 }
 
+/* Rodapé */
 .footer {
   background-color: #000000;
   padding: 20px 0;
   text-align: center;
-  position: relative;
-  bottom: 0;
   width: 100%;
+  position: relative;
+  bottom: 0; /* Coloca o rodapé no final do body */
 }
 
+/* Links no rodapé */
 .footer-content a {
   margin: 0 15px;
   color: #ffffff;
@@ -309,6 +320,7 @@ body{
   font-weight: 500;
 }
 
+/* Efeito ao passar o mouse */
 .footer-content a:hover {
   text-decoration: underline;
   color: #007bff;
