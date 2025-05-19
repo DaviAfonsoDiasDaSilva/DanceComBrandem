@@ -30,18 +30,25 @@ body{
 }
 
 .DancasDisp {
-      position: relative;
-      width: 90%;
-      height:30%;
-      border-radius: 30px;
-      display: flex;
-      margin:auto;
-      overflow: hidden;
-      gap: 10px;
-      padding: 10px;
-      scroll-behavior: smooth;
-      /*background-color: aquamarine;*/
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* espaço uniforme entre e nas margens */
+  align-items: flex-start;
+  gap: 30px;
+  width: 90%; /* ocupa 90% da largura da página */
+  max-width: 1200px; /* limita em telas grandes */
+  margin: 0 auto; /* centraliza o container */
+  padding: 40px 0;
+  border-radius: 30px;
+}
+
+.dance-style {
+  text-align: center;
+  width: 150px; /* ou max-width se quiser mais flexível */
+}
+
+
+
 
 .ApreSite{
     color:white;
@@ -63,17 +70,21 @@ body{
     font:italic;
 }
 
-.Tango-button{
+.circular-image { /*antigo tango-button*/
+  display: inline-block;
   max-width: 150px;
   width: 100%;
-  aspect-ratio: 1/1;             /* size of the button */
-  border-radius: 50%;       /* makes it circular */
-  overflow: hidden;         /* hides overflow of the image */
-  padding: 0;
-  border: none;
-  cursor: pointer;
-  background-color: transparent; /* optional */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
 }
+
+.circular-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o círculo */
+}
+
 
 .Tango-button img {
   width: 100%;
@@ -90,7 +101,7 @@ body{
 .Tango-button:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
 }
-.Tango h3{
+.tango-dance h3{
     color:white;
     text-align:center;
 }
@@ -122,7 +133,7 @@ body{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
 }
 
-.Ballet h3{
+.ballet-dance h3{
     color:white;
     text-align:center;
 }
@@ -154,15 +165,15 @@ body{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
 }
 
-.Valsa h3{
+.valsa-dance h3{
   color:white;
   text-align:center;
 }
-.Zouk h3{
+.zouk-dance h3{
   color:white;
   text-align:center;
 }
-.Grafieira h3{
+.samba-dance h3{
   color:white;
   text-align:center;
 }
