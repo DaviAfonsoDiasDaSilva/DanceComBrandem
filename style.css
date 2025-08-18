@@ -47,7 +47,11 @@ body {
 }
 
 .login-button {
+<<<<<<<< HEAD:style.css
   background-color:blue;
+========
+  background-color: blue;
+>>>>>>>> c44146239a642cd3e2321c1d2e1c95ac9cb696f9:HPEstilo.css
   color: white;
   padding: 8px 16px;
   border-radius: 5px;
