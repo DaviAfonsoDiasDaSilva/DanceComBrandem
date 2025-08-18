@@ -8,6 +8,7 @@
     background-color: #0d2c36; /* Cor de fundo */
     background-repeat: no-repeat; /* Evita repetição do fundo */
     background-size: cover; /* Faz o fundo cobrir toda a tela */
+    color:white;
   }
 
   .main-content {

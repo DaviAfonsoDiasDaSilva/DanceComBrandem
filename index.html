@@ -6,7 +6,7 @@
         <title>Dança Brandem</title>
         <meta name="description" content>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="HPEstilo.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -16,27 +16,16 @@
 
     <body>
         <div class="main-content">
-            <header class="topbar">
-                <div class="logo">Dance com Brandem</div>
-                <nav class="navbar" id="navbar">
-                    <a href="index.html">Home</a>
-                    <a href="Professor.html">Sobre o Professor</a>
-                    <a href="agenda.html">Agenda</a>
-                    <a href="turmas.html">Turmas</a>
-                    <a href="eventos.html">Eventos</a>
-                </nav>
-
-                <div class="login-area">
-                    <a href="login.html" class="login-button">Entrar</a>
-                    <a href="Cadastro.html" class="register-button">Cadastrar</a>
-                </div>
-
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </header>
+            <div id="Header"></div>
+            <script>
+                //Importa o Header e o coloca na pagina serve para 
+                //padronizar o código mais facilmente e evitar repetição
+                fetch('Header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('Header').innerHTML =data;
+                    });
+            </script>
             <div class="ApreSite">
                 <h1>Dance com o Brandem</h1>
                 <h2>Aprenda varios estilos de dança com o professor
