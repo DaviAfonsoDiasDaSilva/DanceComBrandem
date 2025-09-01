@@ -1,57 +1,84 @@
-.TopBar{
-  background-color: blue;
-  /*max-height: 50px;*/
-  max-width: 10px;
-  padding: 8vh 49.5vw;
-  position:relative;
-  border-radius: 30px;
-  display: flex;
-  margin:auto;
-      overflow: hidden;
-      gap: 10px;
-      scroll-behavior: smooth;
-      align-items: center;
+@charset "UTF-8";
+.circular-image {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
 }
-.Home{
-  flex:1;
-    width:15%;
-  
-}
-.linkHome{
-  color: aliceblue;
+.circular-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Estilo do corpo da página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
-  flex-direction: column; /* Organiza os elementos de cima para baixo */
-  min-height: 100vh; /* Garantia de altura mínima (ocupa a altura total da janela) */
-  margin: 0; /* Remove margens padrão do body */
-  
-  background-color: #0d2c36; /* Cor de fundo */
-  background-repeat: no-repeat; /* Evita repetição do fundo */
-  background-size: cover; /* Faz o fundo cobrir toda a tela */
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #0d2c36;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main-content {
-  flex-grow: 1; /* Faz com que o conteúdo principal ocupe o máximo de altura */
+  flex-grow: 1; /* Faz o conteúdo principal ocupar o máximo de altura */
 }
 
-.dance-style {
+h1 {
   text-align: center;
-  width: 150px; /* ou max-width se quiser mais flexível */
+  font-size: 70px;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  color: white;
 }
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+  color: white;
+}
+
+/* TopBar - Versão 1 (Estilo original) */
+.TopBar {
+  background-color: blue;
+  max-width: 10px;
+  padding: 8vh 49.5vw;
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+  gap: 10px;
+  scroll-behavior: smooth;
+  align-items: center;
+}
+.TopBar .Home {
+  flex: 1;
+  width: 15%;
+}
+.TopBar .linkHome {
+  color: aliceblue;
+}
+
+/* Área de Login e Registro */
 .login-area {
   margin-left: auto;
   padding: 10px 20px;
 }
 
-.login-button {
-<<<<<<<< HEAD:style.css
-  background-color:blue;
-========
-  background-color: blue;
->>>>>>>> c44146239a642cd3e2321c1d2e1c95ac9cb696f9:HPEstilo.css
+.login-button,
+.register-button {
   color: white;
   padding: 8px 16px;
   border-radius: 5px;
@@ -59,237 +86,120 @@ body {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-.register-button {
-  background-color: #007bff;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
 .login-button:hover,
 .register-button:hover {
   background-color: #0056b3;
 }
 
-
- h1{
-    text-align: center;
-    font-size: 70px;
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: italic;
-    color:white;
+.login-button {
+  background-color: blue;
 }
 
- h2{
-    text-align: center;
-    font-size: 30px;
-    font:italic;
-    color:white;
+.register-button {
+  background-color: #007bff;
+}
+
+/* Seção de Danças Disponíveis */
+.DancasDisp .circular-image,
+.DancasDisp .Tango-button,
+.DancasDisp .Ballet-button,
+.DancasDisp .Valsa-button {
+  display: inline-block;
+  max-width: 150px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.DancasDisp .circular-image img,
+.DancasDisp .Tango-button img,
+.DancasDisp .Ballet-button img,
+.DancasDisp .Valsa-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.DancasDisp .circular-image:hover,
+.DancasDisp .Tango-button:hover,
+.DancasDisp .Ballet-button:hover,
+.DancasDisp .Valsa-button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .DancasDisp {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* espaço uniforme entre e nas margens */
+  justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
-  width: 90%; /* ocupa 90% da largura da página */
-  max-width: 1200px; /* limita em telas grandes */
-  margin: 0 auto; /* centraliza o container */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 40px 0;
   border-radius: 30px;
 }
-
-.circular-image { /*antigo tango-button*/
-  display: inline-block;
-  max-width: 150px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  overflow: hidden;
+.DancasDisp .Tango,
+.DancasDisp .Ballet,
+.DancasDisp .Valsa,
+.DancasDisp .tango-dance,
+.DancasDisp .salsa-dance,
+.DancasDisp .ballet-dance,
+.DancasDisp .valsa-dance,
+.DancasDisp .zouk-dance,
+.DancasDisp .samba-dance {
+  flex: 1;
+  width: 15%;
 }
-
-.circular-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Garante que a imagem preencha o círculo */
+.DancasDisp .Tango h3,
+.DancasDisp .Ballet h3,
+.DancasDisp .Valsa h3,
+.DancasDisp .tango-dance h3,
+.DancasDisp .salsa-dance h3,
+.DancasDisp .ballet-dance h3,
+.DancasDisp .valsa-dance h3,
+.DancasDisp .zouk-dance h3,
+.DancasDisp .samba-dance h3 {
+  color: white;
+  text-align: center;
 }
-
-
-.Tango-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* ensures the image covers the circle */
-  display: block;
-}
-
-.Tango{
-    flex:1;
-    width:15%;
-}
-
-.Tango-button:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
-}
-.tango-dance h3{
-    color:white;
-    text-align:center;
-}
-
-.salsa-dance h3{
-  color:white;
-  text-align:center;
-}
-
-.Ballet-button{
-  max-width: 150px;
-  width:100%;           /* size of the button */
-  aspect-ratio: 1/1;
-  border-radius: 50%;       /* makes it circular */
-  overflow: hidden;         /* hides overflow of the image */
-  padding: 0;
-  border: none;
-  cursor: pointer;
-  background-color: transparent; /* optional */
-}
-
-.Ballet-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* ensures the image covers the circle */
-  display: block;
-}
-.Ballet{
-    flex:1;
-    width: 15%;
-}
-
-.Ballet-button:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
-}
-
-.ballet-dance h3{
-    color:white;
-    text-align:center;
-}
-
-.Valsa-button{
-  max-width: 150px;
-  width:100%;           /* size of the button */
-  aspect-ratio: 1/1;
-  border-radius: 50%;       /* makes it circular */
-  overflow: hidden;         /* hides overflow of the image */
-  padding: 0;
-  border: none;
-  cursor: pointer;
-  background-color: transparent; /* optional */
-}
-
-.Valsa img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* ensures the image covers the circle */
-  display: block;
-}
-.Valsa{
-  flex:1;
-  width:15%;
-}
-
-.Valsa-button:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* sombra ao passar o mouse */
-}
-
-.valsa-dance h3{
-  color:white;
-  text-align:center;
-}
-.zouk-dance h3{
-  color:white;
-  text-align:center;
-}
-.samba-dance h3{
-  color:white;
-  text-align:center;
-}
-
-
-/*fonte do titulo*/
-.playfair-display {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Topbar */
+/* Topbar - Versão 2 (Estilo com Grid e Menu Hambúrguer) */
 .topbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding: 25px 50px;      /* maior espaçamento */
+  padding: 25px 50px;
   background-color: #8b4c8c;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
 }
-
-/* Logo */
-.logo {
-  font-size: 2rem;        /* maior tamanho */
+.topbar .logo {
+  font-size: 2rem;
   font-weight: bold;
   color: white;
 }
-
-/* Navbar centralizada */
-.navbar {
+.topbar .navbar {
   display: flex;
   justify-content: center;
-  gap: 30px;               /* espaçamento maior */
+  gap: 30px;
   justify-self: center;
-  }
-
-.navbar a {
+}
+.topbar .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;       /* fonte maior */
+  font-size: 1.2rem;
   font-weight: 500;
   padding: 8px 0;
   transition: color 0.3s, border-bottom 0.3s;
 }
-
-.navbar a:hover {
+.topbar .navbar a:hover {
   color: #ffccdd;
   border-bottom: 2px solid #ffccdd;
 }
-
-/* Botão de menu (hambúrguer) */
-.menu-toggle {
-  display: none;           /* escondido por padrão */
-  flex-direction: column;
-  cursor: pointer;
-  justify-self: flex-end;
-}
-
-.menu-toggle .bar {
-  width: 30px;
-  height: 4px;
-  background-color: white;
-  margin: 5px 0;
-  transition: 0.3s;
-}
-
-/* Dropdown (versão mobile) */
-.navbar.active {
+.topbar .navbar.active {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -298,19 +208,29 @@ body {
   width: 100%;
   background-color: #8b4c8c;
   padding: 15px 0;
-  z-index:10;/*so that other content dond get on top of it*/
+  z-index: 10;
 }
-
-.navbar.active a {
+.topbar .navbar.active a {
   padding: 10px 20px;
 }
-
-/* Media Query: abaixo de 768px esconde os links e mostra o hambúrguer */
+.topbar .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  justify-self: flex-end;
+}
+.topbar .menu-toggle .bar {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+}
 @media (max-width: 768px) {
-  .navbar {
+  .topbar .navbar {
     display: none;
   }
-  .menu-toggle {
+  .topbar .menu-toggle {
     display: flex;
   }
 }
@@ -322,19 +242,17 @@ body {
   text-align: center;
   width: 100%;
   position: relative;
-  bottom: 0; /* Coloca o rodapé no final do body */
+  bottom: 0;
 }
-
-/* Links no rodapé */
-.footer-content a {
+.footer .footer-content a {
   margin: 0 15px;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-weight: 500;
 }
-
-/* Efeito ao passar o mouse */
-.footer-content a:hover {
+.footer .footer-content a:hover {
   text-decoration: underline;
   color: #007bff;
 }
+
+/*# sourceMappingURL=style.css.map */

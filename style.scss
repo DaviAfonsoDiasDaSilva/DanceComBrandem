@@ -1,0 +1,320 @@
+// Crie um "mapa" com as classes e cores correspondentes
+$cores-danças: (
+    /*samba: #0077b6,
+    tango: #d62828,
+    salsa: #f77f00,
+    zouk:  #8338ec,
+    ballet: #ffafcc,
+    valsa: #43aa8b*/
+);
+
+// Use o laço @each para gerar as classes dinamicamente
+@each $nome, $cor in $cores-danças {
+    .#{$nome}-dance {
+        border: 2px solid $cor;
+        padding: 1rem;
+        margin: 1rem;
+        text-align: center;
+        background-color: lighten($cor, 40%); // Deixa o fundo mais claro
+
+        h3 {
+            color: $cor;
+        }
+    }
+}
+
+// Estilos que são comuns a todas as imagens circulares
+.circular-image {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px; // Exemplo de tamanho
+    height: 150px; // Exemplo de tamanho
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Garante que a imagem cubra o espaço sem distorcer
+    }
+}
+//================================================
+// 1. VARIÁVEIS
+// Definindo cores e fontes para fácil reutilização
+//================================================
+
+$primary-blue: blue;
+$primary-purple: #8b4c8c;
+$link-blue: #007bff;
+$link-hover-blue: #0056b3;
+$bg-dark: #0d2c36;
+$text-light: white;
+$text-light-alt: aliceblue;
+$footer-bg: #000000;
+$hover-pink: #ffccdd;
+
+$font-serif: "Playfair Display", serif;
+
+//================================================
+// 2. ESTILOS GLOBAIS E DO CORPO
+//================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: $bg-dark;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-content {
+  flex-grow: 1; /* Faz o conteúdo principal ocupar o máximo de altura */
+}
+
+// Estilos de tipografia
+h1 {
+  text-align: center;
+  font-size: 70px;
+  font-family: $font-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  color: $text-light;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-style: italic; // Note: 'font: italic' é inválido, corrigido para 'font-style'
+  color: $text-light;
+}
+
+//================================================
+// 3. COMPONENTES
+//================================================
+
+/* TopBar - Versão 1 (Estilo original) */
+.TopBar {
+  background-color: $primary-blue;
+  max-width: 10px; // Atenção: este valor é muito pequeno e pode estar incorreto
+  padding: 8vh 49.5vw;
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+  gap: 10px;
+  scroll-behavior: smooth;
+  align-items: center;
+
+  .Home {
+    flex: 1;
+    width: 15%;
+  }
+
+  .linkHome {
+    color: $text-light-alt;
+  }
+}
+
+/* Área de Login e Registro */
+.login-area {
+  margin-left: auto;
+  padding: 10px 20px;
+}
+
+.login-button,
+.register-button {
+  color: $text-light;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $link-hover-blue;
+  }
+}
+
+.login-button {
+  background-color: $primary-blue;
+}
+
+.register-button {
+  background-color: $link-blue;
+}
+
+
+/* Seção de Danças Disponíveis */
+// Placeholder para evitar repetição de código nos botões circulares
+%circular-button-base {
+  display: inline-block;
+  max-width: 150px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.DancasDisp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+  border-radius: 30px;
+  
+  // Contêiner para cada estilo de dança
+  .Tango,
+  .Ballet,
+  .Valsa,
+  .tango-dance,
+  .salsa-dance,
+  .ballet-dance,
+  .valsa-dance,
+  .zouk-dance,
+  .samba-dance {
+    flex: 1;
+    width: 15%; // Este estilo estava aplicado a .Tango, .Ballet, .Valsa
+
+    h3 {
+      color: $text-light;
+      text-align: center;
+    }
+  }
+
+  // Todos os botões circulares usarão o estilo base
+  .circular-image,
+  .Tango-button,
+  .Ballet-button,
+  .Valsa-button {
+    @extend %circular-button-base;
+  }
+}
+
+/* Topbar - Versão 2 (Estilo com Grid e Menu Hambúrguer) */
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 25px 50px;
+  background-color: $primary-purple;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $text-light;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    justify-self: center;
+
+    a {
+      color: $text-light;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 8px 0;
+      transition: color 0.3s, border-bottom 0.3s;
+
+      &:hover {
+        color: $hover-pink;
+        border-bottom: 2px solid $hover-pink;
+      }
+    }
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: $primary-purple;
+      padding: 15px 0;
+      z-index: 10;
+
+      a {
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    justify-self: flex-end;
+
+    .bar {
+      width: 30px;
+      height: 4px;
+      background-color: $text-light;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+  }
+  
+  // Aninhando a Media Query dentro do componente que ela afeta
+  @media (max-width: 768px) {
+    .navbar {
+      display: none;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+  }
+}
+
+/* Rodapé */
+.footer {
+  background-color: $footer-bg;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+
+  .footer-content a {
+    margin: 0 15px;
+    color: $text-light;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      color: $link-blue;
+    }
+  }
+}
